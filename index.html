@@ -6,20 +6,20 @@
     <title>CraftingNetwork | Profesyonel Hub</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap" rel="stylesheet">
     <style>
-        :root { --accent: #ff3333; --glass: rgba(0, 0, 0, 0.8); }
+        :root { --accent: #ff3333; --glass: rgba(0, 0, 0, 0.85); }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body, html { width: 100%; height: 100%; font-family: 'Poppins', sans-serif; background: #0a0a0a; color: white; scroll-behavior: smooth; overflow-x: hidden; }
 
-        /* 1. EKRAN: GİRİŞ */
+        /* GİRİŞ EKRANI */
         .hero {
             height: 100vh; width: 100%;
-            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.9)), url('5467719.png');
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.9)), url('5467719.png');
             background-size: cover; background-position: center;
             display: flex; flex-direction: column; align-items: center; justify-content: center;
             position: relative;
         }
 
-        /* NAVBAR: LOGO SAĞDA, MENÜ SOLDAN BAŞLIYOR */
+        /* NAVBAR: MENÜ SOLDAN BAŞLAR, LOGO EN SAĞDA */
         .navbar {
             position: absolute; top: 0; width: 100%; padding: 20px 8%;
             display: flex; justify-content: space-between; align-items: center;
@@ -27,38 +27,45 @@
             z-index: 100;
         }
         .nav-links { display: flex; gap: 30px; }
-        .nav-links a { color: #fff; text-decoration: none; font-weight: 600; font-size: 0.9rem; text-transform: uppercase; transition: 0.3s; }
-        .nav-links a:hover { color: var(--accent); }
+        .nav-links a { color: #fff; text-decoration: none; font-weight: 600; font-size: 0.95rem; text-transform: uppercase; transition: 0.3s; }
+        .nav-links a:hover { color: var(--accent); transform: translateY(-2px); }
 
-        /* SENİN ATTIĞIN LOGO - SAĞ TARAFTA */
-        .site-logo { width: 80px; height: auto; filter: drop-shadow(0 0 10px var(--accent)); transition: 0.5s; }
-        .site-logo:hover { transform: rotate(5deg) scale(1.1); }
+        /* KURT LOGOSU - SAĞDA DURACAK */
+        .site-logo { 
+            width: 100px; height: auto; 
+            filter: drop-shadow(0 0 15px var(--accent)); 
+            transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+        }
+        .site-logo:hover { transform: rotate(10deg) scale(1.2); }
 
         .main-content { text-align: center; z-index: 5; animation: fadeInUp 1s ease; }
-        h1 { font-size: clamp(3rem, 10vw, 7rem); font-weight: 900; line-height: 0.9; margin-bottom: 15px; }
-        .tagline { color: var(--accent); font-weight: 900; letter-spacing: 10px; text-transform: uppercase; margin-bottom: 40px; }
+        h1 { font-size: clamp(3.5rem, 12vw, 8rem); font-weight: 900; line-height: 0.85; margin-bottom: 5px; }
+        .tagline { color: var(--accent); font-weight: 900; letter-spacing: 12px; text-transform: uppercase; margin-bottom: 40px; font-size: 1.2rem; }
 
+        /* IP KOPYALAMA ALANI */
         .ip-copy {
             background: var(--glass); border: 2px solid var(--accent);
-            padding: 20px 50px; border-radius: 12px; cursor: pointer;
+            padding: 22px 60px; border-radius: 15px; cursor: pointer;
             transition: 0.4s; display: inline-block;
         }
-        .ip-copy:hover { background: var(--accent); box-shadow: 0 0 40px var(--accent); transform: scale(1.05); }
+        .ip-copy:hover { background: var(--accent); box-shadow: 0 0 50px var(--accent); transform: scale(1.05); }
+        .ip-copy strong { font-size: 2rem; font-weight: 900; display: block; }
+        .ip-copy span { font-size: 0.8rem; letter-spacing: 3px; opacity: 0.8; }
 
-        /* 2. EKRAN: AÇIKLAMA (RUSH STYLE) */
+        /* ALT AÇIKLAMA (RUSH SECTION) */
         .info-section {
-            padding: 100px 10%; background: #0a0a0a;
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;
+            padding: 120px 10%; background: #0a0a0a;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;
         }
         .card {
-            background: rgba(255,255,255,0.02); padding: 40px; border-radius: 20px;
-            border-bottom: 4px solid #1a1a1a; transition: 0.4s;
+            background: rgba(255,255,255,0.02); padding: 50px; border-radius: 25px;
+            border-bottom: 5px solid #151515; transition: 0.4s;
         }
-        .card:hover { border-bottom-color: var(--accent); background: rgba(255,255,255,0.05); transform: translateY(-10px); }
-        .card h3 { color: var(--accent); margin-bottom: 15px; text-transform: uppercase; font-weight: 900; }
-        .card p { color: #888; line-height: 1.6; }
+        .card:hover { border-bottom-color: var(--accent); background: rgba(255,255,255,0.05); transform: translateY(-15px); }
+        .card h3 { color: var(--accent); margin-bottom: 20px; text-transform: uppercase; font-weight: 900; font-size: 1.4rem; }
+        .card p { color: #999; line-height: 1.8; font-size: 1.05rem; }
 
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
@@ -67,10 +74,10 @@
         <div class="nav-links">
             <a href="#">Ana Sayfa</a>
             <a href="#">Mağaza</a>
+            <a href="#">Sıralama</a>
             <a href="#">Discord</a>
-            <a href="#">Kayıt Ol</a>
         </div>
-        <img src="logo.png" alt="Crafting Logo" class="site-logo">
+        <img src="logo.png" alt="Crafting Wolf Logo" class="site-logo">
     </nav>
 
     <div class="hero">
@@ -79,35 +86,35 @@
             <div class="tagline">NETWORK</div>
             
             <div class="ip-copy" onclick="copyIP()">
-                <strong style="font-size: 1.8rem;">PLAY.CRAFTINGNETWORK.COM</strong>
-                <p style="font-size: 0.8rem; letter-spacing: 2px; margin-top: 5px;">TIKLA VE KOPYALA</p>
+                <strong>PLAY.CRAFTINGNETWORK.COM</strong>
+                <span>TIKLA VE KOPYALA</span>
             </div>
         </div>
     </div>
 
     <section class="info-section">
         <div class="card">
-            <h3>Hızlı Performans</h3>
-            <p>RushCraft deneyimini aratmayan, 0 ping ve yüksek FPS odaklı sunucu altyapımızla kesintisiz oyun keyfi.</p>
+            <h3>%100 Adalet</h3>
+            <p>Emeğinizin karşılığını aldığınız, P2W olmayan bir düzen. RushCraft kalitesinde hile korumasıyla tanışın.</p>
         </div>
         <div class="card">
-            <h3>Adaletli Oyun</h3>
-            <p>Pay-to-win olmayan, tamamen emeğe dayalı rütbe sistemi ve gelişmiş hile korumasıyla herkes eşit.</p>
+            <h3>Hızlı Altyapı</h3>
+            <p>Türkiye lokasyon sunucularımızla en düşük gecikme süresi ve en yüksek oyun akıcılığı garantisi.</p>
         </div>
         <div class="card">
-            <h3>Devasa Mağaza</h3>
-            <p>Kendi karakterini özelleştirebileceğin, sunucuya özel eşyalar ve VIP üyeliklerle gücüne güç kat.</p>
+            <h3>Özel Sistemler</h3>
+            <p>Başka hiçbir yerde görmediğiniz özel rütbe sistemleri ve her hafta düzenlenen ödüllü etkinlikler.</p>
         </div>
     </section>
 
-    <footer style="padding: 50px; text-align: center; background: #050505; border-top: 1px solid #111; color: #444;">
-        &copy; 2026 CraftingNetwork Hub. Tüm hakları o kurda aittir.
+    <footer style="padding: 60px; text-align: center; background: #050505; border-top: 1px solid #111; color: #555;">
+        &copy; 2026 CraftingNetwork - Kurtların Sofrasına Hoş Geldiniz.
     </footer>
 
     <script>
         function copyIP() {
             navigator.clipboard.writeText('play.craftingnetwork.com');
-            alert("🔥 IP Kopyalandı! Kırmızı sezona hoş geldin.");
+            alert("🐺 IP Başarıyla Kopyalandı! Savaşa hazır ol.");
         }
     </script>
 </body>
