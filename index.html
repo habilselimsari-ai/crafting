@@ -3,36 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <title>CraftingNetwork | Kırmızı Sezon</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@900&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body, html { width: 100%; height: 100%; background: #000; overflow: hidden; font-family: sans-serif; }
+        body, html { width: 100%; height: 100%; background: #000; overflow: hidden; font-family: 'Poppins', sans-serif; }
 
-        /* ARKA PLAN - Dosya adın neyse o gelmeli */
+        /* ARKA PLAN - Dosya adını senin dediğin gibi 5467719.png yaptım */
         .hero {
             height: 100vh; width: 100%;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
-            /* EĞER DOSYANIN SONU .jpg İSE AŞAĞIDAKİ .png YERİNE .jpg YAZ */
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url('5467719.png');
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), 
+                        url('image_b5590b.jpg'); /* EĞER DOSYAN JPG İSE BURAYI .jpg YAP */
             background-size: cover; 
             background-position: center;
             text-align: center;
         }
 
-        h1 { font-size: 8rem; color: white; text-shadow: 0 0 50px #ff0000; margin-bottom: 10px; }
-        
+        h1 { font-size: 8rem; color: white; text-shadow: 0 0 50px #ff0000; letter-spacing: -5px; }
+        .sub { font-size: 1.2rem; color: #ff3333; letter-spacing: 15px; text-transform: uppercase; margin-top: -20px; }
+
         .ip-box {
-            padding: 20px 60px; border: 3px solid #ff3333; 
-            background: rgba(0,0,0,0.6); color: #ff3333;
-            cursor: pointer; font-size: 2rem; font-weight: bold;
-            border-radius: 100px; transition: 0.3s;
+            margin-top: 50px; padding: 25px 80px; border-radius: 100px;
+            border: 3px solid #ff3333; background: rgba(0,0,0,0.5);
+            cursor: pointer; transition: 0.4s;
         }
-        .ip-box:hover { background: #ff3333; color: white; }
+        .ip-box:hover { background: #ff3333; transform: scale(1.05); }
+        .ip-text { font-size: 2rem; font-weight: 900; color: #ff3333; }
+        .ip-box:hover .ip-text { color: white; }
     </style>
 </head>
 <body>
     <div class="hero">
         <h1>CRAFTING</h1>
-        <div class="ip-box" onclick="alert('IP Kopyalandı!')">PLAY.CRAFTINGNETWORK.COM</div>
+        <div class="sub">NETWORK</div>
+        <div class="ip-box" onclick="copyIP()">
+            <div class="ip-text">PLAY.CRAFTINGNETWORK.COM</div>
+        </div>
     </div>
+    <script>
+        function copyIP() {
+            const el = document.createElement('textarea');
+            el.value = 'play.craftingnetwork.com';
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+            alert("IP Kopyalandı!");
+        }
+    </script>
 </body>
 </html>
