@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CraftingNetwork | En Kaliteli Survival Deneyimi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0; padding: 0; font-family: 'Poppins', sans-serif;
+            background: #121212; color: white; text-align: center;
+        }
+        .header {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://wallpaperaccess.com/full/127116.jpg');
+            background-size: cover; background-position: center;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+        }
+        h1 { font-size: 4rem; margin-bottom: 10px; color: #ffcc00; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+        p { font-size: 1.2rem; margin-bottom: 30px; }
+        .ip-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px 30px; border-radius: 50px;
+            border: 2px solid #ffcc00; cursor: pointer;
+            transition: 0.3s; font-weight: bold; font-size: 1.5rem;
+        }
+        .ip-box:hover { background: #ffcc00; color: #121212; }
+        .stats { margin-top: 20px; font-style: italic; color: #aaa; }
+        .footer { padding: 20px; background: #0a0a0a; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>CraftingNetwork</h1>
+        <p>Efsanevi Macera Burada Başlıyor! Hemen aramıza katıl.</p>
+        
+        <div class="ip-box" onclick="copyIP()">
+            play.craftingnetwork.com
+        </div>
+        
+        <div class="stats" id="status">
+            Sunucu durumu yükleniyor...
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 CraftingNetwork - Tüm hakları saklıdır.
+    </div>
+
+    <script>
+        function copyIP() {
+            const ip = "play.craftingnetwork.com";
+            navigator.clipboard.writeText(ip);
+            alert("Sunucu adresi kopyalandı: " + ip);
+        }
+
+        // Sunucu Durumunu Çekme (Ücretsiz API)
+        fetch('https://api.mcstatus.io/v2/status/java/play.craftingnetwork.com')
+            .then(response => response.json())
+            .then(data => {
+                const statusDiv = document.getElementById('status');
+                if(data.online) {
+                    statusDiv.innerHTML = `<span style="color:#00ff00">● ÇEVRİMİÇİ</span> - ${data.players.online} Oyuncu Aktif`;
+                } else {
+                    statusDiv.innerHTML = `<span style="color:#ff0000">● ÇEVRİMDIŞI</span>`;
+                }
+            });
+    </script>
+</body>
+</html>
