@@ -17,96 +17,97 @@
             overflow: hidden; 
         }
 
-        /* İŞTE O ARKA PLAN BURADA - Garantili Link */
+        /* HATASIZ ARKA PLAN - Yüksek Kaliteli Kızıl Minecraft Manzarası */
         .hero {
             height: 100vh; width: 100%;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), 
-                        url('https://wallpapercave.com/wp/wp12065842.jpg');
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.85)), 
+                        url('https://images2.alphacoders.com/132/1327533.png');
             background-size: cover; 
             background-position: center;
             text-align: center;
+            animation: bgZoom 10s infinite alternate;
+        }
+
+        @keyframes bgZoom {
+            from { transform: scale(1); }
+            to { transform: scale(1.05); }
         }
 
         h1 { 
-            font-size: 7rem; font-weight: 900; margin: 0; 
-            color: white; letter-spacing: -5px; 
-            text-shadow: 0 0 50px rgba(255, 51, 51, 0.7); 
-            animation: breathe 3s infinite alternate;
+            font-size: clamp(3rem, 10vw, 7rem); font-weight: 900; margin: 0; 
+            color: white; letter-spacing: -4px; 
+            text-shadow: 0 0 50px rgba(255, 51, 51, 0.8); 
         }
         
         .tagline { 
-            font-size: 1.2rem; letter-spacing: 18px; 
+            font-size: 1.2rem; letter-spacing: 15px; 
             color: var(--red); margin-top: -15px; 
             text-transform: uppercase; font-weight: bold;
         }
 
-        /* IP KUTUSU - RushCraft Tarzı */
+        /* RUSH-CRAFT STİLİ IP KUTUSU */
         .ip-box {
             margin-top: 50px;
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(15px);
-            padding: 25px 80px; 
-            border-radius: 100px;
+            padding: 22px 70px; border-radius: 100px;
             border: 3px solid var(--red);
-            cursor: pointer; 
-            transition: all 0.4s;
-            box-shadow: 0 0 40px rgba(255, 51, 51, 0.2);
+            cursor: pointer; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 0 30px rgba(255, 51, 51, 0.2);
         }
 
         .ip-box:hover { 
-            transform: scale(1.05); 
+            transform: scale(1.1); 
             background: var(--red); 
-            box-shadow: 0 0 60px rgba(255, 51, 51, 0.5);
+            box-shadow: 0 0 50px var(--red);
         }
 
-        .ip-text { font-size: 2rem; font-weight: 900; color: var(--red); transition: 0.3s; }
+        .ip-text { font-size: 1.9rem; font-weight: 900; color: var(--red); transition: 0.3s; }
         .ip-box:hover .ip-text { color: white; }
 
-        .nav { display: flex; gap: 20px; margin-top: 50px; }
+        .nav { display: flex; gap: 20px; margin-top: 60px; }
         .btn {
-            padding: 15px 45px; border-radius: 12px; font-weight: 700;
+            padding: 14px 40px; border-radius: 10px; font-weight: 700;
             text-decoration: none; color: white; text-transform: uppercase;
             transition: 0.3s; border: 2px solid rgba(255,255,255,0.1);
             background: rgba(255,255,255,0.05);
         }
         .btn:hover { background: white; color: black; transform: translateY(-5px); }
-        .store { background: var(--red); border: none; }
+        .store-btn { background: var(--red); border: none; }
 
-        #status { margin-top: 30px; font-size: 1rem; color: #888; font-weight: bold; letter-spacing: 4px; }
-
-        @keyframes breathe {
-            from { transform: scale(1); opacity: 0.9; }
-            to { transform: scale(1.03); opacity: 1; }
-        }
+        #status { margin-top: 25px; font-size: 1rem; color: #888; font-weight: bold; letter-spacing: 4px; }
     </style>
 </head>
 <body>
 
     <div class="hero">
-        <h1>CRAFTING</h1>
-        <div class="tagline">NETWORK</div>
+        <div style="animation: fadeInUp 1s ease;">
+            <h1>CRAFTING</h1>
+            <div class="tagline">NETWORK</div>
+        </div>
 
         <div class="ip-box" onclick="copyIP()">
             <div class="ip-text">PLAY.CRAFTINGNETWORK.COM</div>
         </div>
-        <div id="status">DURUM SORGULANIYOR...</div>
+        <div id="status">SUNUCU SORGULANIYOR...</div>
 
         <div class="nav">
-            <a href="#" class="btn">DISCORD</a>
-            <a href="#" class="btn store">MAĞAZA</a>
+            <a href="https://discord.gg/DAVET" class="btn">DISCORD</a>
+            <a href="#" class="btn store-btn">MAĞAZA</a>
+            <a href="#" class="btn">WIKI</a>
         </div>
     </div>
 
     <script>
         function copyIP() {
-            const temp = document.createElement('input');
-            temp.value = 'play.craftingnetwork.com';
-            document.body.appendChild(temp);
-            temp.select();
+            const el = document.createElement('textarea');
+            el.value = 'play.craftingnetwork.com';
+            document.body.appendChild(el);
+            el.select();
             document.execCommand('copy');
-            document.body.removeChild(temp);
-            alert("🔥 IP Kopyalandı!");
+            document.body.removeChild(el);
+            alert("🔥 IP Kopyalandı! Kırmızı sezona bekliyoruz.");
         }
 
         fetch('https://api.mcstatus.io/v2/status/java/play.craftingnetwork.com')
