@@ -3,84 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CraftingNetwork | Profesyonel Hub</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <title>CraftingNetwork | Rush Style</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        :root { --main-color: #ff3333; --bg-dark: rgba(0, 0, 0, 0.8); }
+        :root { --accent: #ff3333; --glass: rgba(0, 0, 0, 0.75); }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body, html { width: 100%; height: 100%; font-family: 'Montserrat', sans-serif; background: #000; color: white; overflow-x: hidden; }
+        body, html { width: 100%; height: 100%; font-family: 'Poppins', sans-serif; background: #000; color: white; overflow-x: hidden; }
 
-        /* RUSH-STYLE BACKGROUND */
+        /* RUSH-STYLE HERO */
         .hero {
             height: 100vh; width: 100%;
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url('5467719.png');
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.85)), url('5467719.png');
             background-size: cover; background-position: center;
             display: flex; flex-direction: column; align-items: center; justify-content: center;
-            position: relative;
         }
 
-        /* ÜST MENÜ (NAVBAR) */
+        /* NAVBAR - RushCraft'taki gibi üstte sabit ve şık */
         .navbar {
-            position: absolute; top: 0; width: 100%; padding: 20px 50px;
+            position: absolute; top: 0; width: 100%; padding: 25px 8%;
             display: flex; justify-content: space-between; align-items: center;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+            background: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent);
+            z-index: 10;
         }
-        .nav-links { display: flex; gap: 30px; }
-        .nav-links a { color: white; text-decoration: none; font-weight: 700; text-transform: uppercase; font-size: 0.9rem; transition: 0.3s; }
-        .nav-links a:hover { color: var(--main-color); }
+        .logo { font-size: 1.6rem; font-weight: 800; letter-spacing: 1px; }
+        .logo span { color: var(--accent); }
+        .nav-links { display: flex; gap: 35px; }
+        .nav-links a { color: #eee; text-decoration: none; font-size: 0.95rem; font-weight: 600; transition: 0.3s; text-transform: uppercase; }
+        .nav-links a:hover { color: var(--accent); }
+        .login-btn { background: var(--accent); padding: 10px 25px; border-radius: 5px; color: white !important; }
 
-        /* ANA BAŞLIK ALANI */
-        .content { text-align: center; z-index: 2; animation: fadeInUp 1s ease; }
-        h1 { font-size: 6rem; font-weight: 900; letter-spacing: -2px; text-shadow: 0 10px 30px rgba(0,0,0,0.5); margin-bottom: 10px; }
-        .subtitle { font-size: 1.2rem; color: var(--main-color); font-weight: 700; letter-spacing: 10px; text-transform: uppercase; margin-bottom: 40px; }
+        /* CONTENT ALANI */
+        .main-content { text-align: center; max-width: 900px; padding: 20px; z-index: 5; }
+        .rush-badge { background: var(--accent); color: white; padding: 5px 15px; border-radius: 50px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; margin-bottom: 20px; display: inline-block; }
+        h1 { font-size: clamp(3.5rem, 8vw, 6.5rem); font-weight: 800; line-height: 1.1; margin-bottom: 20px; }
+        p { font-size: 1.2rem; color: #ccc; margin-bottom: 40px; }
 
-        /* IP KUTUSU - MODERN VERSİYON */
-        .copy-ip {
-            background: var(--bg-dark); border: 2px solid var(--main-color);
-            padding: 15px 40px; border-radius: 5px; cursor: pointer;
-            transition: 0.4s; display: inline-block;
+        /* IP VE BUTONLAR */
+        .action-area { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+        .ip-copy {
+            background: var(--glass); border: 2px solid var(--accent);
+            padding: 18px 45px; border-radius: 8px; cursor: pointer;
+            transition: 0.4s; position: relative; overflow: hidden;
         }
-        .copy-ip:hover { background: var(--main-color); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(255,51,51,0.3); }
-        .copy-ip span { display: block; font-size: 0.7rem; color: #ccc; text-transform: uppercase; }
-        .copy-ip strong { font-size: 1.5rem; color: #fff; }
+        .ip-copy:hover { transform: translateY(-5px); background: var(--accent); box-shadow: 0 15px 30px rgba(255,51,51,0.4); }
+        .ip-copy small { display: block; font-size: 0.75rem; text-transform: uppercase; opacity: 0.8; letter-spacing: 1px; }
+        .ip-copy strong { font-size: 1.8rem; font-weight: 800; }
 
-        /* BUTONLAR */
-        .btn-group { margin-top: 30px; display: flex; gap: 15px; }
-        .btn {
-            padding: 12px 35px; border-radius: 5px; text-decoration: none; font-weight: 700;
-            text-transform: uppercase; transition: 0.3s; border: 2px solid white; color: white;
+        .btn-row { display: flex; gap: 15px; margin-top: 10px; }
+        .btn { 
+            padding: 14px 40px; border-radius: 6px; text-decoration: none; font-weight: 700; 
+            text-transform: uppercase; transition: 0.3s; font-size: 0.9rem;
         }
-        .btn-red { background: var(--main-color); border-color: var(--main-color); }
+        .btn-primary { background: var(--accent); color: white; }
+        .btn-outline { border: 2px solid white; color: white; }
         .btn:hover { transform: scale(1.05); background: white; color: black; }
 
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        /* ANIMASYON */
+        .fade-in { animation: fadeIn 1.2s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
 
+    <nav class="navbar">
+        <div class="logo">CRAFTING<span>NETWORK</span></div>
+        <div class="nav-links">
+            <a href="#">Ana Sayfa</a>
+            <a href="#">Mağaza</a>
+            <a href="#">Yardım</a>
+            <a href="#" class="login-btn">Giriş Yap</a>
+        </div>
+    </nav>
+
     <div class="hero">
-        <nav class="navbar">
-            <div class="logo" style="font-weight: 900; font-size: 1.5rem;">CRAFTING<span style="color: var(--main-color);">NET</span></div>
-            <div class="nav-links">
-                <a href="#">Ana Sayfa</a>
-                <a href="#">Mağaza</a>
-                <a href="#">Forum</a>
-                <a href="#">Wiki</a>
-            </div>
-        </nav>
+        <div class="main-content fade-in">
+            <div class="rush-badge">Türkiye'nin En İyisi</div>
+            <h1>1 Numaralı Minecraft Sunucusuna Katılın!</h1>
+            <p>CraftingNetwork, her anı aksiyon dolu, kesintisiz bir oyun deneyimi sunar. <br>Hemen yerini al ve efsaneye ortak ol!</p>
+            
+            <div class="action-area">
+                <div class="ip-copy" onclick="copyIP()">
+                    <small>Tıkla ve Adresi Kopyala</small>
+                    <strong>PLAY.CRAFTINGNETWORK.COM</strong>
+                </div>
 
-        <div class="content">
-            <h1>CRAFTING</h1>
-            <div class="subtitle">Efsane Yeniden Başlıyor</div>
-
-            <div class="copy-ip" onclick="copyIP()">
-                <span>Tıkla ve IP Kopyala</span>
-                <strong>PLAY.CRAFTINGNETWORK.COM</strong>
-            </div>
-
-            <div class="btn-group">
-                <a href="https://discord.gg/linkin" class="btn btn-red">Discord'a Katıl</a>
-                <a href="#" class="btn">Sıralama</a>
+                <div class="btn-row">
+                    <a href="#" class="btn btn-primary">Şimdi Oyna</a>
+                    <a href="#" class="btn btn-outline">Discord</a>
+                </div>
             </div>
         </div>
     </div>
@@ -88,7 +98,7 @@
     <script>
         function copyIP() {
             navigator.clipboard.writeText('play.craftingnetwork.com');
-            alert("🔥 Sunucu adresi başarıyla kopyalandı!");
+            alert("🔥 Sunucu IP adresi başarıyla kopyalandı! Oyuna girmeye hazırsın.");
         }
     </script>
 </body>
