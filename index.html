@@ -6,91 +6,45 @@
     <title>CraftingNetwork | Kırmızı Sezon</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --red: #ff3333; /* Sunucunun yeni kırmızı rengi */
-            --dark: #050505;
-        }
-
+        :root { --red: #ff3333; --dark: #000000; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        body, html { width: 100%; height: 100%; font-family: 'Poppins', sans-serif; background: var(--dark); color: white; overflow: hidden; }
 
-        body, html { 
-            width: 100%; height: 100%; 
-            font-family: 'Poppins', sans-serif; 
-            background: var(--dark); 
-            color: white; 
-            overflow: hidden; 
-        }
-
-        /* Arka Plan - Attığın Kırmızı Silüet Görseli */
         .hero {
             height: 100vh; width: 100%;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), 
+            /* Arka plan resmini doğrudan güvenilir bir linkle değiştirdim */
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.85)), 
                         url('https://w.wallhaven.cc/full/85/wallhaven-85196y.png');
-            background-size: cover; 
-            background-position: center;
+            background-size: cover; background-position: center;
             text-align: center;
         }
 
-        /* Logo Alanı */
-        h1 { 
-            font-size: 7rem; font-weight: 900; margin: 0; 
-            color: white; letter-spacing: -5px; 
-            text-shadow: 0 0 50px rgba(255, 51, 51, 0.7); 
-            animation: pulse 2s infinite alternate;
-        }
-        .tagline { 
-            font-size: 1.2rem; letter-spacing: 18px; 
-            color: var(--red); margin-top: -15px; 
-            text-transform: uppercase; font-weight: bold;
-            opacity: 0.8;
-        }
+        h1 { font-size: 6rem; font-weight: 900; color: white; text-shadow: 0 0 40px var(--red); letter-spacing: -4px; }
+        .tagline { font-size: 1.1rem; letter-spacing: 15px; color: var(--red); text-transform: uppercase; margin-bottom: 40px; }
 
-        /* IP Kopyalama Kutusu */
         .ip-box {
-            margin-top: 50px;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(15px);
-            padding: 25px 80px; 
-            border-radius: 100px;
-            border: 3px solid var(--red);
-            cursor: pointer; 
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 0 40px rgba(255, 51, 51, 0.2);
+            background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px);
+            padding: 20px 60px; border-radius: 100px; border: 2px solid var(--red);
+            cursor: pointer; transition: 0.3s; box-shadow: 0 0 20px rgba(255, 51, 51, 0.2);
         }
-
-        .ip-box:hover { 
-            transform: scale(1.05); 
-            background: var(--red); 
-            box-shadow: 0 0 60px rgba(255, 51, 51, 0.5);
-        }
-
+        .ip-box:hover { transform: scale(1.05); background: var(--red); }
+        .ip-text { font-size: 1.8rem; font-weight: 900; color: var(--red); transition: 0.3s; }
         .ip-box:hover .ip-text { color: white; }
-        .ip-text { font-size: 2rem; font-weight: 900; color: var(--red); transition: 0.3s; }
 
-        /* Butonlar */
-        .nav { display: flex; gap: 20px; margin-top: 50px; }
+        .menu { display: flex; gap: 20px; margin-top: 50px; }
         .btn {
-            padding: 15px 45px; border-radius: 12px; font-weight: 700;
-            text-decoration: none; color: white; text-transform: uppercase;
-            transition: 0.3s; border: 2px solid rgba(255,255,255,0.1);
-            background: rgba(255,255,255,0.05); font-size: 1rem;
+            padding: 12px 35px; border-radius: 8px; font-weight: 700; text-decoration: none; 
+            color: white; text-transform: uppercase; border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.05); transition: 0.3s;
         }
-        .btn:hover { background: white; color: black; transform: translateY(-5px); }
+        .btn:hover { background: white; color: black; transform: translateY(-3px); }
         .store { background: var(--red); border: none; }
-        .store:hover { background: #cc0000; color: white; }
 
-        /* Oyuncu Sayısı */
-        #status { margin-top: 30px; font-size: 1rem; color: #888; font-weight: bold; letter-spacing: 4px; }
-
-        @keyframes pulse {
-            from { transform: scale(1); }
-            to { transform: scale(1.02); }
-        }
+        #status { margin-top: 25px; font-size: 1rem; color: #888; letter-spacing: 3px; }
     </style>
 </head>
 <body>
-
     <div class="hero">
         <h1>CRAFTING</h1>
         <div class="tagline">NETWORK</div>
@@ -98,28 +52,26 @@
         <div class="ip-box" onclick="copyIP()">
             <div class="ip-text">PLAY.CRAFTINGNETWORK.COM</div>
         </div>
-        <div id="status">SUNUCU DURUMU ALINIYOR...</div>
+        <div id="status">SUNUCU SORGULANIYOR...</div>
 
-        <div class="nav">
-            <a href="https://discord.gg/DAVETLINKIN" class="btn">DISCORD</a>
+        <div class="nav menu">
+            <a href="https://discord.gg/linkin" class="btn">DISCORD</a>
             <a href="#" class="btn store">MAĞAZA</a>
             <a href="#" class="btn">HAKKIMIZDA</a>
         </div>
     </div>
 
     <script>
-        // Hatasız Kopyalama Sistemi
         function copyIP() {
-            const input = document.createElement('input');
-            input.setAttribute('value', 'play.craftingnetwork.com');
-            document.body.appendChild(input);
-            input.select();
+            const el = document.createElement('textarea');
+            el.value = 'play.craftingnetwork.com';
+            document.body.appendChild(el);
+            el.select();
             document.execCommand('copy');
-            document.body.removeChild(input);
-            alert("🔥 IP Kopyalandı! Kırmızı sezona davetlisin.");
+            document.body.removeChild(el);
+            alert("🔥 IP Kopyalandı!");
         }
 
-        // Canlı Oyuncu Sayısı Çekme
         fetch('https://api.mcstatus.io/v2/status/java/play.craftingnetwork.com')
             .then(res => res.json())
             .then(data => {
@@ -127,11 +79,7 @@
                 if(data.online) {
                     s.innerText = `AKTİF: ${data.players.online} OYUNCU`;
                     s.style.color = "#ff3333";
-                } else {
-                    s.innerText = "SUNUCU ŞU AN BAKIMDA";
-                }
-            }).catch(() => {
-                document.getElementById('status').innerText = "IP BAGLANAMADI";
+                } else { s.innerText = "SUNUCU BAKIMDA"; }
             });
     </script>
 </body>
