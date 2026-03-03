@@ -8,43 +8,69 @@
     <style>
         :root { --red: #ff3333; --dark: #000000; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body, html { width: 100%; height: 100%; font-family: 'Poppins', sans-serif; background: var(--dark); color: white; overflow: hidden; }
+        
+        body, html { 
+            width: 100%; height: 100%; 
+            font-family: 'Poppins', sans-serif; 
+            background: var(--dark); 
+            color: white; 
+            overflow: hidden; 
+        }
 
+        /* ARKA PLAN BURADA - Linki güncelledim */
         .hero {
             height: 100vh; width: 100%;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
-            /* Arka plan resmini doğrudan güvenilir bir linkle değiştirdim */
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.85)), 
-                        url('https://w.wallhaven.cc/full/85/wallhaven-85196y.png');
-            background-size: cover; background-position: center;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), 
+                        url('https://images.alphacoders.com/132/1327533.png');
+            background-size: cover; 
+            background-position: center;
             text-align: center;
         }
 
-        h1 { font-size: 6rem; font-weight: 900; color: white; text-shadow: 0 0 40px var(--red); letter-spacing: -4px; }
-        .tagline { font-size: 1.1rem; letter-spacing: 15px; color: var(--red); text-transform: uppercase; margin-bottom: 40px; }
+        h1 { 
+            font-size: 6.5rem; font-weight: 900; margin: 0; 
+            color: white; letter-spacing: -4px; 
+            text-shadow: 0 0 40px rgba(255, 51, 51, 0.6); 
+        }
+        
+        .tagline { 
+            font-size: 1.1rem; letter-spacing: 15px; 
+            color: var(--red); margin-top: -10px; 
+            text-transform: uppercase; font-weight: bold;
+        }
 
         .ip-box {
-            background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px);
-            padding: 20px 60px; border-radius: 100px; border: 2px solid var(--red);
-            cursor: pointer; transition: 0.3s; box-shadow: 0 0 20px rgba(255, 51, 51, 0.2);
+            margin-top: 50px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            padding: 22px 70px; border-radius: 100px;
+            border: 2px solid var(--red);
+            cursor: pointer; transition: 0.4s;
+            box-shadow: 0 0 30px rgba(255, 51, 51, 0.15);
         }
+
         .ip-box:hover { transform: scale(1.05); background: var(--red); }
-        .ip-text { font-size: 1.8rem; font-weight: 900; color: var(--red); transition: 0.3s; }
+        .ip-text { font-size: 1.9rem; font-weight: 900; color: var(--red); transition: 0.3s; }
         .ip-box:hover .ip-text { color: white; }
 
-        .menu { display: flex; gap: 20px; margin-top: 50px; }
+        .nav { display: flex; gap: 20px; margin-top: 60px; }
+        
         .btn {
-            padding: 12px 35px; border-radius: 8px; font-weight: 700; text-decoration: none; 
-            color: white; text-transform: uppercase; border: 1px solid rgba(255,255,255,0.2);
-            background: rgba(255,255,255,0.05); transition: 0.3s;
+            padding: 14px 40px; border-radius: 8px; font-weight: 700;
+            text-decoration: none; color: white; text-transform: uppercase;
+            transition: 0.3s; border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.05);
         }
-        .btn:hover { background: white; color: black; transform: translateY(-3px); }
-        .store { background: var(--red); border: none; }
+        
+        .btn:hover { background: white; color: black; transform: translateY(-5px); }
+        .store-btn { background: var(--red); border: none; }
 
-        #status { margin-top: 25px; font-size: 1rem; color: #888; letter-spacing: 3px; }
+        #status { margin-top: 25px; font-size: 1rem; color: #888; font-weight: bold; letter-spacing: 3px; }
     </style>
 </head>
 <body>
+
     <div class="hero">
         <h1>CRAFTING</h1>
         <div class="tagline">NETWORK</div>
@@ -54,9 +80,9 @@
         </div>
         <div id="status">SUNUCU SORGULANIYOR...</div>
 
-        <div class="nav menu">
+        <div class="nav">
             <a href="https://discord.gg/linkin" class="btn">DISCORD</a>
-            <a href="#" class="btn store">MAĞAZA</a>
+            <a href="#" class="btn store-btn">MAĞAZA</a>
             <a href="#" class="btn">HAKKIMIZDA</a>
         </div>
     </div>
